@@ -51,7 +51,7 @@ export default function Signin() {
                             onChange={({target}) => setPassword(target.value)}
                     />
                     <Form.Submit disabled={isInvalid} type="submit">
-                        SignIn
+                        Sign In
                     </Form.Submit>
                 </Form.Base>
 
