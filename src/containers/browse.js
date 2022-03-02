@@ -9,13 +9,13 @@ import logo from "../logo.png";
 
 
 export function BrowseContainer({slides}){
-    const [category, setCategory] = useState('series');
+    // const [category, setCategory] = useState('series');
     const [ searchTerm, setSearchTerm] = useState('');
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
     const {firebase} = useContext(FirebaseContext);
     const user = getAuth(firebase).currentUser || {};
-    const [slideRows, setSlideRows] = useState([]);
+    // const [slideRows, setSlideRows] = useState([]);
 
     useEffect(() => {
         setTimeout(() => {
@@ -23,9 +23,9 @@ export function BrowseContainer({slides}){
         }, 3000);
     }, [profile.displayName]);
 
-    useEffect(() => {
-        setSlideRows(slides[category]);
-    },[]);
+    // useEffect(() => {
+    //     setSlideRows(slides[category]);
+    // },[]);
 
     return profile.displayName ? (
 
