@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SelectProfileContainer } from "./profiles";
 import { FirebaseContext } from "../context/firebase";
-import { useContext, useEffect, useState } from "react/cjs/react.development";
 import { getAuth } from "firebase/auth";
 import {Loading, Header, Card} from '../compoments';
 import * as ROUTES from '../constants/routes';
