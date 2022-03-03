@@ -44,7 +44,7 @@ export function BrowseContainer({slides}){
 
         <>
         {loading ? (
-            <Loading src={user.photoURL} />
+            <Loading src={user.email=="guest@guest.com"?"1":user.photoURL} />
             ) : (
                 <Loading.ReleaseBody/>
             )}
@@ -59,11 +59,11 @@ export function BrowseContainer({slides}){
                     <Header.Group>
                         <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
                         <Header.Profile>
-                            <Header.Picture src={user.photoURL}/>
+                            <Header.Picture src={user.email=="guest@guest.com"?"1":user.photoURL}/>
                             <Header.Dropdown>
                                 <Header.Group>
-                                    <Header.Picture src={user.photoURL}/>
-                                    <Header.TextLink>{user.displayName}</Header.TextLink>
+                                    <Header.Picture src={user.email=="guest@guest.com"?"1":user.photoURL}/>
+                                    <Header.TextLink>{user.email=="guest@guest.com"?"Guest":user.displayName}</Header.TextLink>
                                 </Header.Group>
                                 <Header.Group>
                                     <Header.TextLink onClick = {() => getAuth(firebase).signOut()}>Sign out</Header.TextLink>
@@ -111,7 +111,8 @@ export function BrowseContainer({slides}){
             </Card.Group>
             <FooterContainer/>
             </>
-    ) : (
-        <SelectProfileContainer user={user} setProfile={setProfile}/>
-    );
-}
+    ) : user.email == "guest@guest.com"? setProfile({ displayName: "Guest", photoURL: "1" })
+        :(
+            <SelectProfileContainer user={user} setProfile={setProfile}/>
+        );
+    }

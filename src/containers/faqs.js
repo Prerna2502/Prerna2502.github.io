@@ -14,8 +14,8 @@ export function FaqsContainer() {
                 </Accordion.Item>
             )}
             <OptForm>
-                <OptForm.Input placeholder = "Email address" />
-                <OptForm.Button>Try it now</OptForm.Button>
+                {/* <OptForm.Input placeholder = "Email address" /> */}
+                <OptForm.Button>Try as a Guest</OptForm.Button>
                 <OptForm.Break />
                 <OptForm.Text>
                     Ready to watch? Enter your email to create or restart your membership
