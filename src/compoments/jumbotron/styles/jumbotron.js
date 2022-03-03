@@ -63,4 +63,6 @@ export const SubTitle = styled.h2`
 export const Image = styled.img`
     max-width: 100%;
     height: auto;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px 12px #DCDCDC;
 `;

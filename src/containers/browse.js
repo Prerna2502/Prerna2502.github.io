@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Fuse from "fuse.js";
 import { SelectProfileContainer } from "./profiles";
 import { FirebaseContext } from "../context/firebase";
 import { getAuth } from "firebase/auth";
@@ -27,6 +28,17 @@ export function BrowseContainer({slides}){
         setSlideRows(slides[category]);
     },[slides, category]);
 
+    useEffect(() => {
+        const fuse = new Fuse(slideRows, {keys: ['data.description', 'data.title' , 'data.genre']});
+        const results = fuse.search(searchTerm).map(({item}) => item);
+
+        if(slideRows.length > 0 && searchTerm.length > 3 && results.length > 0){
+            setSlideRows(results);
+        } else{
+            setSlideRows(slides[category]);
+        }
+    }, [searchTerm]);
+
     return profile.displayName ? (
 
         <>
@@ -35,7 +47,7 @@ export function BrowseContainer({slides}){
             ) : (
                 <Loading.ReleaseBody/>
             )}
-            <Header src="joker1">
+            <Header src="puspa">
                 <Header.Frame>
                     <Header.Group>
                         <Header.Logo to={ROUTES.HOME} src={logo} alt="IndianMovies" />
@@ -90,7 +102,7 @@ export function BrowseContainer({slides}){
                             </Player>
                         </Card.Feature>
                     </Card>
-                ))};
+                ))}
             </Card.Group>
             <FooterContainer/>
             </>

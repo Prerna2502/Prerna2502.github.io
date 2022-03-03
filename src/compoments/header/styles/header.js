@@ -4,9 +4,9 @@ import {Link as ReactRouterLink} from 'react-router-dom';
 export const Background = styled.div`
     display: flex;
     flex-direction: column;
-    background: url(${({src})  => (src? `../images/misc/${src}.jpg` :
+    background: linear-gradient(rgba(90,90,90,.5), rgba(90,90,90,.5)), url(${({src})  => (src? `../images/misc/${src}.jpg` :
         `../images/misc/home-bg.jpg`)}) top left / cover no-repeat;
-
+    
     @media (max-width: 1100px) {
         background: none;
     }
@@ -96,9 +96,10 @@ export const Dropdown = styled.div`
 `;
 
 export const Logo = styled.img`
-    height: 150px;
-    width: 200px;
+    height: 100px;
+    width: 150px;
     margin-right: 40px;
+    filter: brightness(150%);
 
     @media(min-width: 1449px){
         height: 45px;
