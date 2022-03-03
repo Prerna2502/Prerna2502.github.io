@@ -17,6 +17,7 @@ export function BrowseContainer({slides}){
     const {firebase} = useContext(FirebaseContext);
     const user = getAuth(firebase).currentUser || {};
     const [slideRows, setSlideRows] = useState([]);
+    const [videolink, setVideoLink] = useState("https://www.youtube.com/");
 
     useEffect(() => {
         setTimeout(() => {
@@ -53,6 +54,7 @@ export function BrowseContainer({slides}){
                         <Header.Logo to={ROUTES.HOME} src={logo} alt="IndianMovies" />
                         <Header.TextLink active={category === 'series' ? 'true': 'false'} onClick={() => setCategory('series')}>Series</Header.TextLink>
                         <Header.TextLink active={category === 'films' ? 'true': 'false'} onClick={() => setCategory('films')}>Films</Header.TextLink>
+                        <Header.TextLink active={category === 'HindiMovies' ? 'true': 'false'} onClick={() => setCategory('HindiMovies')}>Hindi Movies</Header.TextLink>
                     </Header.Group>
                     <Header.Group>
                         <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
@@ -71,11 +73,10 @@ export function BrowseContainer({slides}){
                     </Header.Group>
                 </Header.Frame>
                 <Header.Feature>
-                <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
+                <Header.FeatureCallOut>Watch Puspa Now</Header.FeatureCallOut>
                 <Header.Text>
-                    Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham 
-                    City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a 
-                    futile attempt to feel like he's part of the world around him.
+                Story of Pushpa Raj, a lorry driver in Seshachalam forests of South India, set in the backdrop
+                of red sandalwood smuggling. Red Sandalwood is endemic to South-Eastern Ghats (mountain range) of India.
                     </Header.Text>
                     <Header.PlayButton>Play</Header.PlayButton>
                 </Header.Feature>
@@ -86,18 +87,22 @@ export function BrowseContainer({slides}){
                         <Card.Title>{slideItem.title}</Card.Title>
                         <Card.Entities>
                             {slideItem.data.map((item) => (
-                                <Card.Item key={item.docId} item={item}>
+                                <Card.Item key={item.docId} item={item} setVideoLink={setVideoLink}>
                                     <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
                                     <Card.Meta>
                                         <Card.SubTitle>{item.title}</Card.SubTitle>
                                         <Card.Text>{item.description}</Card.Text>
+                                        {item.trailer
+                                            ? <Card.Link source={item.trailer} target="_blank" rel="noreferrer noopener">Trailer</Card.Link>
+                                            : null
+                                        }
                                     </Card.Meta>
                                 </Card.Item>
                             ))}
                         </Card.Entities>
                         <Card.Feature category={category}>
                             <Player>
-                                <Player.Button/>
+                                <Player.ButtonLink source= {videolink} target="_blank" rel="noreferrer noopener"/>
                                 <Player.Video src="/videos/bunny.mp4" />
                             </Player>
                         </Card.Feature>

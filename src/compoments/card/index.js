@@ -1,6 +1,6 @@
 import React, {useState, useContext, createContext} from "react";
 import { Container, Group, Title, SubTitle, Text, Meta, Item, Image, Entities, Feature, FeatureTitle,
-FeatureText, FeatureClose, Maturity, Content } from "./styles/card";
+FeatureText, FeatureClose, Maturity, Content, Link } from "./styles/card";
 
 export const FeatureContext = createContext();
 
@@ -27,6 +27,10 @@ Card.SubTitle = function CardSubTitle({children, ...restProps}) {
     return <SubTitle {...restProps}>{children}</SubTitle>;
 }
 
+Card.Link = function CardLink({children,source, ...restProps}) {
+    return <Link href={source} {...restProps}>{children}</Link>;
+}
+
 Card.Text = function CardText({children, ...restProps}) {
     return <Text {...restProps}>{children}</Text>;
 }
@@ -39,13 +43,14 @@ Card.Meta = function CardMeta({children, ...restProps}) {
     return <Meta {...restProps}>{children}</Meta>;
 }
 
-Card.Item = function CardItem({item, children, ...restProps}) {
+Card.Item = function CardItem({item, setVideoLink, children, ...restProps}) {
     const {setShowFeature, setItemFeature} = useContext(FeatureContext);
     return (
         <Item
             onClick = {() => {
                 setItemFeature(item);
                 setShowFeature(true);
+                item.trailer? setVideoLink(item.trailer) : "https://www.youtube.com/watch?v=X6GpRxu4q_s";
             }}
             {...restProps}
         >

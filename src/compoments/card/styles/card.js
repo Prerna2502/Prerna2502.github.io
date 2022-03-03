@@ -58,6 +58,30 @@ export const Text = styled.p`
   line-height: normal;
 `;
 
+export const Link = styled.a`
+  color: white;
+  font-size: 15px;
+  height: 15px;
+  width : 60px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 0;
+  margin-left: 5px;
+  user-select: none;
+  background-color: #e50914;
+  border-color: #ff0a16;
+  padding: 10px 20px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: #ff0a16;
+  }
+`;
+
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
@@ -95,7 +119,7 @@ export const Item = styled.div`
   }
 
   @media (min-width: 1200px) {
-    &:hover ${Meta}, &:hover ${Text}, &:hover ${SubTitle} {
+    &:hover ${Meta}, &:hover ${Text}, &:hover ${SubTitle}, &:hover ${Link} {
       display: block;
       z-index: 100;
     }

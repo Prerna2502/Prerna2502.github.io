@@ -6,7 +6,8 @@ import {BrowseContainer} from '../containers/browse';
 export default function Browse() {
     const {series} = useContent('series');
     const {films} = useContent('films');
-    const slides = selectionFilter({series,films});
+    const {HindiMovies} = useContent('HindiMovies');
+    const slides = selectionFilter({series,films,HindiMovies});
 
     return <BrowseContainer slides={slides}/>;
 }

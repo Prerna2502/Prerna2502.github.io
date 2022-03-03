@@ -1,4 +1,4 @@
-export default function selectionFilter({series, films}){
+export default function selectionFilter({series, films,HindiMovies}){
     return {
         series: [
             {
@@ -42,6 +42,28 @@ export default function selectionFilter({series, films}){
             {
                 title: 'Romance', 
                 data: films.filter((item) => item.genre === 'romance'),
+            },
+        ],
+        HindiMovies: [
+            {
+                title: 'Drama', 
+                data: HindiMovies.filter((item) => item.genre === 'drama'),
+            },
+            {
+                title: 'Thriller', 
+                data: HindiMovies.filter((item) => item.genre === 'thriller'),
+            },
+            {
+                title: 'Children', 
+                data: HindiMovies.filter((item) => item.genre === 'children'),
+            },
+            {
+                title: 'Suspense', 
+                data: HindiMovies.filter((item) => item.genre === 'suspense'),
+            },
+            {
+                title: 'Romance', 
+                data: HindiMovies.filter((item) => item.genre === 'romance'),
             },
         ]
     }
