@@ -65,4 +65,9 @@ export const Image = styled.img`
     height: auto;
     border-radius: 25px;
     box-shadow: 10px 10px 5px 12px #DCDCDC;
+
+    @media (max-width: 600px) {
+        box-shadow: 2px 2px 1px 3px #DCDCDC;
+        border-radius: 10px;
+    }
 `;

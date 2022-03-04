@@ -24,13 +24,22 @@ export const Container = styled.div`
     padding: 18px 0;
     justify-content: space-between;
     align-items: center;
+    min-width: 0;
 
     a{
         display: flex;
     }
 
+    ${Group}: nth-of-type(2){
+        flex-wrap:wrap;
+    }
+
     @media(max-width: 1000px){
         margin: 0 30px;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 70px;
+        margin-bottom: 120px;
     }
 `;
 
@@ -117,7 +126,6 @@ export const Search = styled.div`
     }
 
     @media (max-width: 700px) {
-        display: none;
     }
 `;
 
@@ -132,7 +140,7 @@ export const SearchIcon = styled.button`
     }
 `;
 
-export const PlayButton = styled.button`
+export const PlayButton = styled.a`
     box-shadow: 0 0.6vw 1vw -0.4vw rgba(0,0,0,0.35);
     background-color: #e6e6e6;
     color: #000;
@@ -144,6 +152,10 @@ export const PlayButton = styled.button`
     font-size: 20px;
     margin-top: 30px;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+
 
     &:hover {
         background-color: #ff1e1e;

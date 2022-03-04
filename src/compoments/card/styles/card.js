@@ -85,6 +85,10 @@ export const Link = styled.a`
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  @media (max-width: 1000px) {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
 `;
 
 export const Meta = styled.div`
@@ -99,8 +103,9 @@ export const Image = styled.img`
   border: 0;
   width: 100%;
   max-width: 305px;
+  min-height:150px;
+  min-width:200px;
   cursor: pointer;
-  height: auto;
   padding: 0;
   margin: 0;
 `;

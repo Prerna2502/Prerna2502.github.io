@@ -52,6 +52,8 @@ export function BrowseContainer({slides}){
                 <Header.Frame>
                     <Header.Group>
                         <Header.Logo to={ROUTES.HOME} src={logo} alt="IndianMovies" />
+                    </Header.Group>
+                    <Header.Group>
                         <Header.TextLink active={category === 'series' ? 'true': 'false'} onClick={() => setCategory('series')}>Series</Header.TextLink>
                         <Header.TextLink active={category === 'films' ? 'true': 'false'} onClick={() => setCategory('films')}>Films</Header.TextLink>
                         <Header.TextLink active={category === 'HindiMovies' ? 'true': 'false'} onClick={() => setCategory('HindiMovies')}>Hindi Movies</Header.TextLink>
