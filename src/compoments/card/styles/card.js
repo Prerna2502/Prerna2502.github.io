@@ -85,9 +85,12 @@ export const Link = styled.a`
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  
   @media (max-width: 1000px) {
     overflow-x: auto;
     overflow-y: hidden;
+    margin-right:20px;
+    margin-left:20px;
   }
 `;
 

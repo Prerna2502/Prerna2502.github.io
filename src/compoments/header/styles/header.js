@@ -39,7 +39,7 @@ export const Container = styled.div`
         flex-direction: column;
         justify-content: center;
         margin-top: 70px;
-        margin-bottom: 120px;
+        margin-bottom: 100px;
     }
 `;
 
@@ -107,7 +107,6 @@ export const Dropdown = styled.div`
 export const Logo = styled.img`
     height: 100px;
     width: 150px;
-    margin-right: 40px;
     filter: brightness(150%);
 
     @media(min-width: 1449px){
