@@ -137,7 +137,7 @@ export const Item = styled.div`
     margin-left: 56px;
 
     @media (max-width: 1000px) {
-      margin-left: 30px;
+      margin-left: 0;
     }
   }
 
